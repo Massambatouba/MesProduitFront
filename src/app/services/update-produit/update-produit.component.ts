@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { Produit } from 'src/app/model/produit.model';
 import { ProduitService } from '../produit.service';
 
@@ -11,6 +11,7 @@ import { ProduitService } from '../produit.service';
 export class UpdateProduitComponent implements OnInit {
   currentProduit = new Produit();
   constructor(private activatedRoute: ActivatedRoute,
+              private router: Router,
               private produitService: ProduitService) { }
 
   ngOnInit(): void {
@@ -19,7 +20,9 @@ export class UpdateProduitComponent implements OnInit {
 
   }
   updateProduit(){
-    console.log(this.currentProduit);
+    //console.log(this.currentProduit);
+    this.produitService.updateProduit(this.currentProduit);
+    this.router.navigate(["produits"])
 
   }
 

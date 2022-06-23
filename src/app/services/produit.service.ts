@@ -35,4 +35,20 @@ export class ProduitService {
     return this.produits.find(p => p.idProduit == id)!;
 
   }
+  updateProduit(p: Produit){
+    this.supprimerProduit(p);
+    this.ajouterProduit(p);
+    this.trierProduits();
+  }
+  trierProduits(){
+    this.produits = this.produits.sort((n1,n2) =>{
+      if((n1.idProduit!) < (n2.idProduit!)){
+          return -1;
+      }
+      return 0;
+    });
+  }
+
+
+
 }

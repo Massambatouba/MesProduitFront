@@ -4,9 +4,9 @@
   </div>
 
   <form>
-    <div class="col-sm-2 col-md-2 col-lg-2">
+    <div  class="col-sm-2 col-md-2 col-lg-2">
       <label>ID Produit</label>
-      <input
+      <input readonly
         type="text"
         [(ngModel)]="currentProduit.idProduit"
         name="idProduit"
@@ -35,7 +35,7 @@
       <label>Date création</label>
       <input
         type="date"
-        [(ngModel)]= "currentProduit.dateCreation | date: 'dd/MM/yyyy'"
+        [ngModel]= "currentProduit.dateCreation | date: 'yyyy-MM-dd'"
         (ngModelChange)="currentProduit.dateCreation= $event"
         name="dateCreation"
         class="form-control"
